@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+{% block body %}
+{% load static %}
+
+<body>
+	<!-- inner banner -->
+	<div class="ibanner_w3 pt-sm-5 pt-3">
+		<h4 class="head_agileinfo text-center text-capitalize text-center pt-5">
+			<span>f</span>ashion
+			<span>h</span>ub</h4>
+	</div>
+	<!-- //inner banner -->
+    <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Shop</li>
+        </ol>
+    </nav>
+    <!-- //breadcrumbs -->
+    <!-- Shop -->
+    <div class="innerf-pages section">
+        <div class="container">
+            <!-- grid right -->
+            <div class="py-sm-5 py-3 right-product-grid">
+                <!-- card group 2 -->
+                <h5 class="shop_w3 text-capitalize">
+                    Men's Collection</h5>
+                <div class="row card-group my-sm-5 mt-5">
+                    <!-- row2 -->
+                    <!-- card -->
+                    {% for i in mens|slice:3 %}
+                    
+                    
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card product-men p-3">
+                            <div class="men-thumb-item">
+                                <img src="{{ i.image.url }}" alt="img" class="card-img-top">
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                        <a href="{% url 'product_details' i.id %}" class="link-product-add-cart">Quick View</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- card body -->
+                            <div class="card-body  py-3 px-2">
+                                <h5 class="card-title text-capitalize">{{ i.name }}</h5>
+                                <div class="card-text d-flex justify-content-between">
+                                    <span>Rs {{ i.price }}</span>
+                                    
+                                </div>
+                            </div>
+                            <!-- card footer -->
+                            <div class="card-footer d-flex justify-content-end">
+                                <form action="#" method="post">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="add" value="1">
+                                    <input type="hidden" name="hub_item" value="Black Casual Men's Blazer">
+                                    <input type="hidden" name="amount" value="20.00">
+                                    <button type="submit" class="hub-cart phub-cart btn">
+                                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                    </button>
+                                    <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                   
+                    <!-- //card -->
+                    
+                    
+                     <div class="col-lg-3 col-sm-6">
+                        <div class="card py-sm-5 border-0">
+                            <a class="btn-lg btn-secondary text-center m-5" href="{% url 'category_details' mens_id.id %}">View More</a>
+                        </div>
+                    </div> 
+                    <!-- //card 2 -->
+                </div>
+                <!-- //card group -->
+
+                <!-- card group 2 -->
+                <h5 class="shop_w3 text-capitalize">
+                    Women's Collection</h5>
+                <div class="row card-group my-sm-5 mt-5">
+                    <!-- row2 -->
+                    <!-- card -->
+                    {% for i in womens|slice:3 %}
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card product-men p-3">
+                            <div class="men-thumb-item">
+                                <img src="{{ i.image.url }}" alt="img" class="card-img-top">
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                        <a href="{% url 'product_details' i.id %}" class="link-product-add-cart">Quick View</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- card body -->
+                            <div class="card-body  py-3 px-2">
+                                <h5 class="card-title text-capitalize">{{ i.name }}</h5>
+                                <div class="card-text d-flex justify-content-between">
+                                    <span>Rs {{ i.price }}</span>
+                                </div>
+                            </div>
+                            <!-- card footer -->
+                            <div class="card-footer d-flex justify-content-end">
+                                <form action="#" method="post">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="add" value="1">
+                                    <input type="hidden" name="hub_item" value="Blue Wedding Formal Blazer">
+                                    <input type="hidden" name="amount" value="13.00">
+                                    <button type="submit" class="hub-cart phub-cart btn">
+                                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                    </button>
+                                    <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- //card -->
+                   
+                   
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card py-sm-5 border-0">
+                            <a class="btn-lg btn-secondary text-center m-5" href="{% url 'category_details' womens_id.id %}">View More</a>
+                        </div>
+                    </div>
+                    <!-- //card 2 -->
+                </div>
+                <!-- //card group -->
+
+                <!-- card group 2 -->
+                <h5 class="shop_w3 text-capitalize">
+                    Girl's Collection</h5>
+                <div class="card-group my-sm-5 mt-5">
+                    <!-- row2 -->
+                    <!-- card -->
+                    {% for i in girls|slice:3 %}
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card product-men p-3">
+                            <div class="men-thumb-item">
+                                <img src="{{ i.image.url }}" alt="img" class="card-img-top">
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                        <a href="{% url 'product_details' i.id %}" class="link-product-add-cart">Quick View</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- card body -->
+                            <div class="card-body  py-3 px-2">
+                                <h5 class="card-title text-capitalize">{{ i.name }}</h5>
+                                <div class="card-text d-flex justify-content-between">
+                                    <span>Rs {{ i.price }}</span>
+                                </div>
+                            </div>
+                            <!-- card footer -->
+                            <div class="card-footer d-flex justify-content-end">
+                                <form action="#" method="post">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="add" value="1">
+                                    <input type="hidden" name="hub_item" value="Full Length Party Dress">
+                                    <input type="hidden" name="amount" value="20.00">
+                                    <button type="submit" class="hub-cart phub-cart btn">
+                                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                    </button>
+                                    <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- //card -->
+                    
+                    
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card py-sm-5 border-0">
+                            <a class="btn-lg btn-secondary text-center m-5" href="{% url 'category_details' girls_id.id %}">View More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- //card group -->
+                <!-- card group  -->
+                <h5 class="row shop_w3 text-capitalize">
+                    Boy's Collection</h5>
+                <div class="card-group my-5">
+                    <!-- row1-->
+                    <!-- card -->
+                    {% for i in boys|slice:"3" %}
+                    
+                    
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card product-men p-3">
+                            <div class="men-thumb-item">
+                                <img src="{{ i.image.url }}" alt="img" class="card-img-top">
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                        <a href="{% url 'product_details' i.id %}" class="link-product-add-cart">Quick View</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- card body -->
+                            <div class="card-body  py-3 px-2">
+                                <h5 class="card-title text-capitalize">{{ i.name }}</h5>
+                                <div class="card-text d-flex justify-content-between">
+                                    <span>Rs {{ i.price }}</span>
+                                </div>
+                            </div>
+                            <!-- card footer -->
+                            <div class="card-footer d-flex justify-content-end">
+                                <form action="#" method="post">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="add" value="1">
+                                    <input type="hidden" name="hub_item" value="Festive Kurta And Pyjama Set">
+                                    <input type="hidden" name="amount" value="18.00">
+                                    <button type="submit" class="hub-cart phub-cart btn">
+                                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                    </button>
+                                    <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                    <!-- //card -->
+                   
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card py-sm-5 border-0">
+                            <a class="btn-lg btn-secondary text-center m-5" href="{% url 'category_details' boys_id.id %}">View More</a>
+                        </div>
+                        <!-- //row  -->
+                    </div>
+                </div>
+                <!-- //card group -->
+
+            </div>
+        </div>
+    </div>
+    <!--// Shop -->
+
+    {% endblock body %}

@@ -1,0 +1,486 @@
+{% extends "base.html" %}
+{% block body %}
+{% load static %}
+    <!-- banner -->
+    <div class="banner-text">
+        <div class="callbacks_container">
+            <ul class="rslides" id="slider3">
+                <li class="banner banner2">
+                    <div class="container">
+                        <h3 class="agile_btxt">
+                            <span>f</span>ashion
+                            <span>h</span>ub
+                        </h3>
+                        <h4 class="w3_bbot">shop exclusive clothing</h4>
+                        <div class="slider-info mt-sm-5">
+                            <h4 class="bn_right">
+                                <span>m</span>en's
+                                <span>f</span>ashion</h4>
+                            <div class="bnr_clip position-relative">
+                                <h4>get up to
+                                    <span class="px-2">35% </span>
+                                </h4>
+                                <div class="d-inline-flex flex-column banner-pos position-absolute text-center">
+                                    <div class="bg-flex-item">
+                                        <span>O</span>
+                                    </div>
+                                    <div class="bg-flex-item">
+                                        <span>F</span>
+                                    </div>
+                                    <div class="bg-flex-item">
+                                        <span>F
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-uppercase py-2">on special sale</p>
+                                <a class="btn btn-primary mt-3 text-capitalize" href="{% url 'shop' %}" role="button">shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="banner">
+                    <div class="container">
+                        <h3 class="agile_btxt">
+                            <span>f</span>ashion
+                            <span>h</span>ub
+                        </h3>
+                        <h4 class="w3_bbot">shop exclusive clothing</h4>
+                        <div class="slider-info mt-sm-5">
+                            <h4 class="bn_right">
+                                <span>w</span>omen's
+                                <span>f</span>ashion</h4>
+                            <div class="bnr_clip position-relative">
+                                <h4>get up to
+                                    <span class="px-2">45% </span>
+                                </h4>
+                                <div class="d-inline-flex flex-column banner-pos position-absolute text-center">
+                                    <div class="bg-flex-item">
+                                        <span>O</span>
+                                    </div>
+                                    <div class="bg-flex-item">
+                                        <span>F</span>
+                                    </div>
+                                    <div class="bg-flex-item">
+                                        <span>F
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-uppercase py-2">on special sale</p>
+                                <a class="btn btn-primary mt-3 text-capitalize" href="shop.html" role="button">shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="banner banner3">
+                    <div class="container">
+                        <h3 class="agile_btxt">
+                            <span>f</span>ashion
+                            <span>h</span>ub
+                        </h3>
+                        <h4 class="w3_bbot">shop exclusive clothing</h4>
+                        <div class="slider-info mt-sm-5">
+                            <h4 class="bn_right">
+                                <span>k</span>id's
+                                <span>f</span>ashion</h4>
+                            <div class="bnr_clip position-relative">
+                                <h4>get up to
+                                    <span class="px-2">45% </span>
+                                </h4>
+                                <div class="d-inline-flex flex-column banner-pos position-absolute text-center">
+                                    <div class="bg-flex-item">
+                                        <span>O</span>
+                                    </div>
+                                    <div class="bg-flex-item">
+                                        <span>F</span>
+                                    </div>
+                                    <div class="bg-flex-item">
+                                        <span>F
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-uppercase py-2">on special sale</p>
+                                <a class="btn btn-primary mt-3 text-capitalize" href="shop.html" role="button">shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- //banner -->
+    <!--services-->
+    <div class="agileits-services" id="services">
+        <div class="no-gutters agileits-services-row row">
+            <div class="col-lg-3 col-sm-6 agileits-services-grids p-sm-5 p-3">
+                <span class="fas fa-sync-alt p-4"></span>
+                <h4 class="mt-2 mb-3">30 days replacement</h4>
+            </div>
+            <div class="col-lg-3 col-sm-6 agileits-services-grids p-sm-5 p-3">
+                <span class="fas fa-gift p-4"></span>
+                <h4 class="mt-2 mb-3">Gift Card</h4>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 agileits-services-grids p-sm-5 p-3">
+                <span class="fas fa-lock p-4"></span>
+                <h4 class="mt-2 mb-3">secure payments</h4>
+            </div>
+            <div class="col-lg-3 col-sm-6 agileits-services-grids p-sm-5 p-3">
+                <span class="fas fa-shipping-fast p-4"></span>
+                <h4 class="mt-2 mb-3">free shipping</h4>
+            </div>
+        </div>
+    </div>
+    <!-- //services-->
+    <!-- about -->
+    <div class="row no-gutters pb-5">
+        <div class="col-sm-4">
+            <div class="hovereffect">
+                <img class="img-fluid" src="{% static 'images/a1.jpg' %}" alt="">
+                <div class="overlay">
+                    <h5>women's fashion</h5>
+                    <a class="info" href="{% url 'category_details' womens_id.id %}">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="hovereffect">
+                <img class="img-fluid" src="{% static 'images/a2.jpg' %}" alt="">
+                <div class="overlay">
+                    <h5>men's <br>fashion</h5>
+                    <a class="info" href="{% url 'category_details' mens_id.id %}">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="hovereffect">
+                <img class="img-fluid" src="{% static 'images/a3.jpg' %}" alt="">
+                <div class="overlay">
+                    <h5>kid's(boy's) fashion
+                        <a class="info" href="{% url 'category_details' boys_id.id %}">Shop Now</a>
+                    <br>
+                    <br>
+                        kid's(girl's) fashion
+                        <a class="info" href="{% url 'category_details' girls_id.id %}">Shop Now</a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //about -->
+    <!-- product tabs -->
+    <section class="tabs_pro py-md-5 pt-sm-3 pb-5">
+        <h5 class="head_agileinfo text-center text-capitalize pb-5">
+            <span>s</span>mart clothing</h5>
+        <div class="tabs tabs-style-line pt-md-5">
+            <nav class="container">
+                <ul id="clothing-nav" class="nav nav-tabs tabs-style-line" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#women" id="women-tab" role="tab" data-toggle="tab" aria-controls="women" aria-expanded="true">Women's Fashion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#men" role="tab" id="men-tab" data-toggle="tab" aria-controls="men">Men's Fashion
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#girl" role="tab" id="girl-tab" data-toggle="tab" aria-controls="girl">Girl's Fashion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#boy" role="tab" id="boy-tab" data-toggle="tab" aria-controls="boy">Boy's Fashion</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Content Panel -->
+            <div id="clothing-nav-content" class="tab-content py-sm-5">
+                <div role="tabpanel" class="tab-pane fade show active" id="women" aria-labelledby="women-tab">
+                    <div id="owl-demo" class="owl-carousel text-center">
+                        {% for i in womens %}
+                        <div class="item">
+                            <!-- card -->
+                            <div class="card product-men p-3">
+                                <div class="men-thumb-item">
+                                    <img src="{{ i.image.url }}" alt="img" class="card-img-top">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="{% url 'product_details' i.id %}" class="link-product-add-cart">Quick View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- card body -->
+                                <div class="card-body  py-3 px-2">
+                                    <h5 class="card-title text-capitalize">{{ i.name }}</h5>
+                                    <div class="card-text d-flex justify-content-between">
+                                        <span>Rs {{ i.price }}</span>
+                                    </div>
+                                </div>
+                                <!-- card footer -->
+                                <div class="card-footer d-flex justify-content-end">
+                                    <form action="#" method="post">
+                                        <input type="hidden" name="cmd" value="_cart">
+                                        <input type="hidden" name="add" value="1">
+                                        <input type="hidden" name="hub_item" value="Self Design Women's Tunic">
+                                        <input type="hidden" name="amount" value="28.00">
+                                        <button type="submit" class="hub-cart phub-cart btn">
+                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                        </button>
+                                        <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- //card -->
+                        </div>
+                        {% endfor %}
+                        <div class="item">
+                            <div class="product-men p-3 text-center">
+                                <img src="{% static 'images/p2.png' %}" class="img-responsive" alt="" />
+                                <a href="{% url 'category_details' womens_id.id %}" class="btn btn-lg bg-info text-white">view more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="men" aria-labelledby="men-tab">
+                    <div id="owl-demo1" class="owl-carousel text-center">
+                        {% for i in mens %}
+                        <div class="item">
+                            <!-- card -->
+                            <div class="card product-men p-3">
+                                <div class="men-thumb-item">
+                                    <img src="{{ i.image.url }}" alt="img" class="card-img-top">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="{% url 'product_details' i.id %}" class="link-product-add-cart">Quick View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- card body -->
+                                <div class="card-body  py-3 px-2">
+                                    <h5 class="card-title text-capitalize">{{ i.name }}</h5>
+                                    <div class="card-text d-flex justify-content-between">
+                                        <span>Rs {{ i.price }}</span>
+                                    </div>  
+                                </div>
+                                <!-- card footer -->
+                                <div class="card-footer d-flex justify-content-end">
+                                    <form action="#" method="post">
+                                        <input type="hidden" name="cmd" value="_cart">
+                                        <input type="hidden" name="add" value="1">
+                                        <input type="hidden" name="hub_item" value="Solid Formal Black Shirt">
+                                        <input type="hidden" name="amount" value="40.00">
+                                        <button type="submit" class="hub-cart phub-cart btn">
+                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                        </button>
+                                        <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- //card -->
+                        </div>
+                        {% endfor %}
+                        
+                        <div class="item">
+
+                            <div class="product-men p-3 text-center">
+                                <img src="{% static 'images/p2.png' %}" class="img-responsive" alt="">
+                                <a href="{% url 'category_details' mens_id.id %}" class="btn btn-lg bg-info text-white">view more</a>
+                            </div>
+                            <!-- //card -->
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="girl" aria-labelledby="girl-tab">
+                    <div id="owl-demo2" class="owl-carousel text-center">
+                        {% for i in girls %}
+                        
+                        <div class="item">
+                            <!-- card -->
+                            <div class="card product-men p-3">
+                                <div class="men-thumb-item">
+                                    <img src="{{ i.image.url }}" alt="img" class="card-img-top">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="{% url 'product_details' i.id %}" class="link-product-add-cart">Quick View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- card body -->
+                                <div class="card-body  py-3 px-2">
+                                    <h5 class="card-title text-capitalize">{{ i.name }}</h5>
+                                    <div class="card-text d-flex justify-content-between">
+                                        <span>Rs {{ i.price }}</span>
+                                    </div>
+                                </div>
+                                <!-- card footer -->
+                                <div class="card-footer d-flex justify-content-end">
+                                    <form action="#" method="post">
+                                        <input type="hidden" name="cmd" value="_cart">
+                                        <input type="hidden" name="add" value="1">
+                                        <input type="hidden" name="hub_item" value="Midi/Knee Length Party Dress">
+                                        <input type="hidden" name="amount" value="18.00">
+                                        <button type="submit" class="hub-cart phub-cart btn">
+                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                        </button>
+                                        <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- //card -->
+                        </div>
+                        {% endfor %}
+                        <div class="item">
+                            <div class="product-men p-3 text-center">
+                                <img src="{% static 'images/p2.png' %}" class="img-responsive" alt="" />
+                                <a href="{% url 'category_details' girls_id.id %}" class="btn btn-lg bg-info text-white">view more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="boy" aria-labelledby="boy-tab">
+                    <div id="owl-demo3" class="owl-carousel text-center">
+                        
+                        {% for i in boys %}
+                        <div class="item">
+                            <!-- card -->
+                            <div class="card product-men p-3">
+                                <div class="men-thumb-item">
+                                    <img src="{{ i.image.url }}" alt="img" class="card-img-top">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro"> 
+                                            <a href="{% url 'product_details' i.id %}" class="link-product-add-cart">Quick View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- card body -->
+                                <div class="card-body  py-3 px-2">
+                                    <h5 class="card-title text-capitalize">{{ i.name }}</h5>
+                                    <div class="card-text d-flex justify-content-between">
+                                        <span>Rs {{ i.price }}</span>
+                                    </div>
+                                </div>
+                                <!-- card footer -->
+                                <div class="card-footer d-flex justify-content-end">
+                                    <form action="#" method="post">
+                                        <input type="hidden" name="cmd" value="_cart">
+                                        <input type="hidden" name="add" value="1">
+                                        <input type="hidden" name="hub_item" value="Boy's Casual Blue T-Shirt">
+                                        <input type="hidden" name="amount" value="15.00">
+                                        <button type="submit" class="hub-cart phub-cart btn">
+                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                        </button>
+                                        <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- //card -->
+                        </div>
+                        {% endfor %}
+                       
+                        <div class="item">
+                            <div class="product-men p-3 text-center">
+                                <img src="{% static 'images/p2.png' %}" class="img-responsive" alt="" />
+                                <a href="{% url 'category_details' boys_id.id %}" class="btn btn-lg bg-info text-white">view more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- //product tabs -->
+
+
+ {% comment %} <!-- sign up Modal -->
+ <div class="modal fade" id="myModal_btn" tabindex="-1" role="dialog" aria-labelledby="myModal_btn" aria-hidden="true">
+    <div class="agilemodal-dialog modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Register Now</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body pt-3 pb-5 px-sm-5">
+                <div class="row">
+                    <div class="col-md-6 mx-auto align-self-center">
+                        <img src="{% static 'images/p3.png' %}" class="img-fluid" alt="login_image" />
+                    </div>
+                    <div class="col-md-6">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name1" class="col-form-label">Your Name</label>
+                                <input type="text" class="form-control" placeholder=" " name="Name" id="recipient-name1" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-email" class="col-form-label">Email</label>
+                                <input type="email" class="form-control" placeholder=" " name="Email" id="recipient-email" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="password1" class="col-form-label">Password</label>
+                                <input type="password" class="form-control" placeholder=" " name="Password" id="password1" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="password2" class="col-form-label">Confirm Password</label>
+                                <input type="password" class="form-control" placeholder=" " name="Confirm Password" id="password2" required="">
+                            </div>
+                            <div class="sub-w3l">
+                                <div class="sub-agile">
+                                    <input type="checkbox" id="brand2" value="">
+                                    <label for="brand2" class="mb-3">
+                                        <span></span>I Accept to the Terms & Conditions</label>
+                                </div>
+                            </div>
+                            <div class="right-w3l">
+                                <input type="submit" class="form-control" value="Register">
+                            </div>
+                        </form>
+                        <p class="text-center mt-3">Already a member?
+                            <a href="#" data-toggle="modal" data-target="#exampleModal1" class="text-dark login_btn">
+                                Login Now</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //signup modal -->
+<!-- signin Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModal1" aria-hidden="true">
+    <div class="agilemodal-dialog modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body  pt-3 pb-5 px-sm-5">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <img src="{% static 'images/p3.png' %}" class="img-fluid" alt="login_image" />
+                    </div>
+                    <div class="col-md-6">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Your Name</label>
+                                <input type="text" class="form-control" placeholder=" " name="Name" id="recipient-name" required="">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">Password</label>
+                                <input type="password" class="form-control" placeholder=" " name="Password" required="">
+                            </div>
+                            <div class="right-w3l">
+                                <input type="submit" class="form-control" value="Login">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- signin Modal --> {% endcomment %}
+{% endblock body %}    
