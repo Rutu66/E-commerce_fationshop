@@ -29,9 +29,7 @@
                 <div class="d-sm-flex justify-content-between mb-4">
                     <h4>review your order
                     </h4>
-                    <h4 class="mt-sm-0 mt-3">Your shopping cart contains:
-                        <span>3 Products</span>
-                    </h4>
+                    
                 </div>
                 <div class="checkout-right">
                     <table class="timetable_sub" style="color:red;  ">
@@ -99,53 +97,91 @@
                         
                         
                     </div>
+                    
                     <div class="col-md-8 address_form">
                         <h4>Billing Address</h4>
-                        <form action="payment.html" method="post" class="creditly-card-form shopf-sear-headinfo_form">
+                        <div style="margin-bottom: 15px;">
+                            <select id="addressSelect" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                                <option value="">Select an address</option>
+                                {% for i in address %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <form action="{% url 'add_address' %}" id="addressForm" method="post" class="creditly-card-form shopf-sear-headinfo_form">
+                            {% csrf_token %}
                             <div class="creditly-wrapper wrapper">
                                 <div class="information-wrapper">
                                     <div class="first-row form-group">
                                         <div class="controls">
                                             <label class="control-label">Full name: </label>
-                                            <input class="billing-address-name form-control" type="text" name="name" placeholder="Full name">
+                                            <input class="billing-address-name form-control" type="text" id="name" name="name" placeholder="Full name" required>
                                         </div>
                                         <div class="card_number_grids">
                                             <div class="card_number_grid_left">
                                                 <div class="controls">
                                                     <label class="control-label">Mobile number:</label>
-                                                    <input class="form-control" type="text" placeholder="Mobile number">
+                                                    <input class="form-control" type="text" placeholder="Mobile number" id="mobile" name="mobile" required>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="card_number_grid_right">
                                                 <div class="controls">
                                                     <label class="control-label">Landmark: </label>
-                                                    <input class="form-control" type="text" placeholder="Landmark">
+                                                    <input class="form-control" type="text" placeholder="Landmark" id="address" name="address" required>
                                                 </div>
                                             </div>
                                             <div class="clear"> </div>
                                         </div>
                                         <div class="controls">
                                             <label class="control-label">Town/City: </label>
-                                            <input class="form-control" type="text" placeholder="Town/City">
+                                            <input class="form-control" type="text" placeholder="Town/City" id="city" name="city" required>
                                         </div>
-                                        <div class="controls">
+                                        {% comment %} <div class="controls">
                                             <label class="control-label">Address type: </label>
-                                            <select class="form-control option-fieldf">
+                                            <select class="form-control option-fieldf" name="address_type">
                                                 <option>Office</option>
                                                 <option>Home</option>
-                                                <option>Commercial</option>
+                                                
 
                                             </select>
-                                        </div>
+                                        </div> {% endcomment %}
+                                        <button class="submit check_out_address">Add Address</button>
                                     </div>
-                                    <button class="submit check_out">place order</button>
                                 </div>
+                                
+                                
+
                             </div>
+                        </form>
+                        <form method="post" action="{% url 'order' %}">
+                            {% csrf_token %}
+                            <button class="submit check_out" type="submit">Place Order</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var addressSelect = document.getElementById("addressSelect");
+            var addressForm = document.getElementById("addressForm");
+        
+            addressSelect.addEventListener("change", function() {
+                var selectedAddress = addressSelect.options[addressSelect.selectedIndex].text;
+        
+                // Split the selected address by comma to extract individual parts
+                var parts = selectedAddress.split(', ');
+        
+                // Update the form fields with extracted data
+                document.getElementById("name").value = parts[0];
+                document.getElementById("mobile").value = parts[1]; // Update with mobile number from address
+                document.getElementById("address").value = parts[2]; // Update with address
+                document.getElementById("city").value = parts[3]; // Update with city
+            });
+        });
+</script>
     <!--//checkout-->
 {% endblock body %}

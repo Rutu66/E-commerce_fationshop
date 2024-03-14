@@ -4,6 +4,40 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
+<script>
+    $(document).ready(function() {
+        $('.add-to-cart-btn').click(function() {
+            // Your AJAX request to add item to cart
+            $.ajax({
+                type: 'POST',
+                url: '/add_to_cart/',
+                data: {
+                    // Your data to send to the server
+                },
+                success: function(response) {
+                    if (response.success) {
+                        showPopup('Item added to cart successfully!');
+                    } else {
+                        showPopup('Failed to add item to cart. Please try again.');
+                    }
+                },
+                error: function() {
+                    showPopup('Error occurred. Please try again later.');
+                }
+            });
+        });
+    });
+    
+
+function showPopup(message) {
+    alert(message);  // You can customize this to show a fancy pop-up
+
+
+
+
+</script>  
+
+}   
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -781,7 +815,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Register Now</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="add-to-cart-btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
@@ -981,6 +1015,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             });
         });
     </script>
+
+    
     <!-- //end-smooth-scrolling -->
     <!-- smooth-scrolling-of-move-up -->
     <script>

@@ -61,6 +61,43 @@ class Cart(BaseModel):
         ordering=("-created_at",)
         
 
+class Address(BaseModel):
+    """ address object """
+    
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(_("Name"),max_length=255)
+    mobile = models.IntegerField(_("Mobile"))
+    address = models.CharField(_("Address"),max_length=255)
+    city = models.CharField(_("City"),max_length=255)
+    
+    
+    def __str__(self) -> str:
+        return f"{self.name}, {self.mobile}, {self.address}, {self.city}"
+
+    
+    class Meta:
+        ordering=("-created_at",)
+        
+class Order(BaseModel):
+    """ Order object """
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    total = models.FloatField(_("Total"), default=1)
+    
+    def __str__(self) -> str:
+        return self.user
+    
+    class Meta:
+        ordering=("-created_at",)
+
+        
+
+    
+    
+
 
 
 

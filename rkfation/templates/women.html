@@ -371,18 +371,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </form>
                 </div>
                 <div class="occasion-cart">
-                    <div class="chr single-item single_page_b">
+                    {% comment %} <div class="chr single-item single_page_b">
                         <form action="#" method="post">
                             <input type="hidden" name="cmd" value="_cart">
                             <input type="hidden" name="add" value="1">
-                            <input type="hidden" name="hub_item" value="Floral Print Women's Top">
-                            <input type="hidden" name="amount" value="18.00">
+                            <input type="hidden" name="hub_item" value=" Formal Men's Blazer">
+                            <input type="hidden" name="amount" value="15.99">
                             <button type="submit" class="hub-cart phub-cart btn">
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
                             </button>
                             <a href="#" data-toggle="modal" data-target="#myModal1"></a>
                         </form>
-                    </div>
+                    </div> {% endcomment %}
+                    <a href="{% url 'add_to_cart' productdata.id %}"> Add </a>
                 </div>
             </div>
         </div>
