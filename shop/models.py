@@ -72,7 +72,7 @@ class Address(BaseModel):
     city = models.CharField(_("City"),max_length=255)
     
     
-    def __str__(self) -> str:
+    def __str__(self) -> str: 
         return f"{self.name}, {self.mobile}, {self.address}, {self.city}"
 
     
@@ -93,7 +93,19 @@ class Order(BaseModel):
     class Meta:
         ordering=("-created_at",)
 
-        
+class OrderItem(BaseModel):
+    
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    Product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    price = models.FloatField(null=False)
+    quantity = models.IntegerField(null=False)
+    
+    def __str__(self) -> str:
+        return self.Order.id
+    
+    class Meta:
+        ordering=("-created_at",)
+    
 
     
     

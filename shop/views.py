@@ -19,6 +19,7 @@ def index(request):
     Return all items sort views for users.
     
     """
+
     mens = Product.objects.filter(category__name="Men's Product")
     womens = Product.objects.filter(category__name="Women's Product")
     boys = Product.objects.filter(category__name="Boy's Product")
@@ -95,7 +96,7 @@ def checkout(request):
     
     """
     
-    address = Address.objects.filter(user=request.user)
+    # address = Address.objects.filter(user=request.user)
     cart_items = Cart.objects.filter(user=request.user)
     amount = 0
     for i in cart_items:
@@ -107,7 +108,7 @@ def checkout(request):
     data = {
         'cart' : cart_items,
         'total' : total,
-        'address' : address
+        # 'address' : address
     }
     
     return render(request, 'checkout.html',data)
@@ -221,20 +222,53 @@ def user_logout(request):
     return redirect('login')
 
 
-# def address(request):
+def address(request):
     
-#     return render(request, 'address.html')
+    return render(request, 'address.html')
     
 def order(request):
     
     if request.method == "POST":
+        neworder = Order
         
+        neworder.user = request.user
         
+        products = Cart.objects.filter(user=request.user)
+        for item in products:
+            OrderItem.objects.create(
+                order=neworder,
+                Product=item.product,
+                price=item.product.price,
+                quantity=item.quantity
+            )
+            
+        return redirect('index')        
         
+def order(request):
+    if request.method == "POST":
+        # Create a new order instance
+        new_order = Order.objects.create(user=request.user)
         
-        return redirect('index')
+        # Get products from the user's cart
+        cart_items = Cart.objects.filter(user=request.user)
         
+        # Create OrderItem instances for each product in the cart
+        for item in cart_items:
+            OrderItem.objects.create(
+                order=new_order,
+                product=item.product,
+                price=item.product.price,
+                quantity=item.quantity
+            )
         
+        # Clear the user's cart
+        cart_items.delete()
+        
+        # Redirect to some success URL
+        return redirect('success-url')
+    
+    # If the request method is not POST, render some template
+    return render(request, 'order.html')
         
     
 def add_address(request):

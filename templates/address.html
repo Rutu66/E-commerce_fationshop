@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<div style="max-width: 800px; margin: 0 auto;">
+    <div style="margin-bottom: 15px;">
+        <select id="addressSelect" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+            <option value="">Select an address</option>
+            <option value="address1">123 Main St, City, Country</option>
+            <option value="address2">456 Elm St, Town, Country</option>
+            <option value="address3">789 Oak St, Village, Country</option>
+        </select>
+    </div>
+    <form id="addressForm">
+        <input type="text" id="name" name="name" placeholder="Name">
+        <input type="text" id="mobile" name="mobile" placeholder="Mobile">
+        <input type="text" id="address" name="address" placeholder="Address">
+        <input type="text" id="city" name="city" placeholder="City">
+    </form>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var addressSelect = document.getElementById("addressSelect");
+    var addressForm = document.getElementById("addressForm");
+
+    addressSelect.addEventListener("change", function() {
+        var selectedAddress = addressSelect.options[addressSelect.selectedIndex].text;
+
+        // Split the selected address by comma to extract individual parts
+        var parts = selectedAddress.split(', ');
+
+        // Update the form fields with extracted data
+        document.getElementById("name").value = parts[0];
+        document.getElementById("mobile").value = ""; // Update with mobile number if available
+        document.getElementById("address").value = parts[0]; // Update with address
+        document.getElementById("city").value = parts[1]; // Update with city
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+{% endblock body %}
