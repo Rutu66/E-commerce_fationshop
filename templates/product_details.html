@@ -130,11 +130,32 @@
                                 <a href="#" data-toggle="modal" data-target="#myModal1"></a>
                             </form>
                         </div> {% endcomment %}
-                        <a href="{% url 'add_to_cart' productdata.id %}"> Add </a>
+
+                         
+                        <a href="{% url 'add_to_cart' productdata.id %}" id="addToCartButton" style="padding: 10px 25px; background-color: #007bff; border: none; border-radius: 5px; color: #fff; font-size: 14px; text-transform: uppercase; cursor: pointer; transition: background-color 0.3s ease; outline: none;" onclick="addToCart()">Add to Cart</a>
+                        
+
+                        <div id="notification" class="notification" style="position: fixed; top: 20px; right: 20px; background-color: #28a745; color: #fff; padding: 10px 20px; border-radius: 5px; display: none; z-index: 999;">Item added to cart!</div>
+
+
+    
+                        {% comment %} <a href="{% url 'add_to_cart' productdata.id %}"> Add </a> {% endcomment %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function addToCart() {
+            // Your code to add the item to the cart goes here
+            // For demonstration purposes, let's just show a notification
+            var notification = document.getElementById("notification");
+            notification.style.display = "block";
+            setTimeout(function(){
+                notification.style.display = "none";
+            }, 2000); // Hide notification after 2 seconds
+        }
+    </script>
 
 {% endblock body %}

@@ -90,21 +90,44 @@
               <!-- sigin and sign up -->
               {% if user.is_authenticated %}
                 <!-- If user is logged in, show username -->
-                
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <div class="container-fluid">
+                    <ul class="navbar-nav">
+                      <!-- Avatar -->
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
+                          role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle"
+                            height="25" alt="Avatar" loading="lazy" />
+                            {{ request.user }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li>
+                            <a class="dropdown-item" href="#">My profile</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Settings</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <button>
+                        <a href="{% url 'checkout' %}" class=""><i class="fas fa-shopping-bag"></i></a>
+                      </button>
+                    </ul>
+                  </div>
+                </nav>
                 {% else %}
                 <!-- If user is not logged in, show login icon -->
                 <a class="text-dark login_btn align-self-center mx-3" href="{% url 'login' %}"><i class="far fa-user"></i></a>
               {% endif %}
               <!-- sigin and sign up -->
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <!-- shopping cart -->
-              <div class="cart-mainf">
-                <div class="hubcart hubcart2 cart cart box_1" style="margin-top: 11px;">
-                  <a href="{% url 'checkout' %}" class=""><i class="fas fa-shopping-bag"></i></a>
-                </div>
-              </div>
-              {% comment %} <span>Hello,{{ request.user }}</span>
-              <span><a href="{% url 'logout' %}">Log out</a></span> {% endcomment %}
-              <!-- //shopping cart ends here -->
+                
+              
             </div>
           </div>
         </nav>
@@ -132,9 +155,7 @@
                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">{{ request.user }} Log out</a>
-              </li>
+              
             </ul>
           </div>
         </nav>

@@ -79,36 +79,48 @@ class Address(BaseModel):
     class Meta:
         ordering=("-created_at",)
         
-class Order(BaseModel):
-    """ Order object """
+# class Order(BaseModel):
+#     """ Order object """
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    total = models.FloatField(_("Total"), default=1)
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+#     address = models.ForeignKey(Address, on_delete=models.CASCADE, default="", null=True)
+#     total = models.FloatField(_("Total"), default=1)
     
-    def __str__(self) -> str:
-        return self.user
+#     def __str__(self) -> str:
+#         return self.user
     
-    class Meta:
-        ordering=("-created_at",)
+#     class Meta:
+#         ordering=("-created_at",)
 
-class OrderItem(BaseModel):
+# class OrderItem(BaseModel):
     
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    Product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    price = models.FloatField(null=False)
-    quantity = models.IntegerField(null=False)
+#     order = models.ForeignKey(Order, on_delete=models.CASCADE)
+#     Product = models.ForeignKey(Product, on_delete=models.CASCADE)
+#     price = models.FloatField(null=False)
+#     quantity = models.IntegerField(null=False)
     
-    def __str__(self) -> str:
-        return self.Order.id
+#     def __str__(self) -> str:
+#         return self.Order.id
     
-    class Meta:
-        ordering=("-created_at",)
-    
+#     class Meta:
+#         ordering=("-created_at",)
+
 
     
-    
+class OrderPlaced(BaseModel):
+    """OrderPlaced objects."""
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE, default="", null=True)
+    quantity = models.CharField(max_length=255,blank=True,null=True)
+    price = models.FloatField(default=0)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self) -> str:
+        return f"Order {self.id} by {self.user}"    
 
 
 
